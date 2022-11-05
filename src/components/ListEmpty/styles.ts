@@ -8,7 +8,7 @@ export const Container = styled.View`
 `;
 
 export const Message = styled.Text`
-  margin-top: 32;
+  margin-top: 32px;
   text-align: center;
   font-size: ${({ theme }) => theme.FONT_SIZE.SM}px;
   font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};

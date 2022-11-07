@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import { GroupCard } from '@components/GroupCard';
 import { Header } from '@components/Header';
-import { HighLight } from '@components/HighLight';
+import { Highlight } from '@components/Highlight';
 import { ListEmpty } from '@components/ListEmpty';
 import { Button } from '@components/Button';
 
@@ -22,7 +22,7 @@ export function Groups() {
         <Container>
             <Header />
 
-            <HighLight
+            <Highlight
                 title="Turmas"
                 subtitle="Jogue com a sua turma"
             />

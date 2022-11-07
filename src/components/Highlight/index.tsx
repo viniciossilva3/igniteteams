@@ -5,7 +5,7 @@ type Props = {
     subtitle: string;
 };
 
-export function HighLight({ title, subtitle }: Props) {
+export function Highlight({ title, subtitle }: Props) {
 
     return (
         <Container>

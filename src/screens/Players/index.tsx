@@ -12,6 +12,7 @@ import { PlayerStorageDTO } from '@storage/players/PlayerStorageDTO';
 
 import { Container, Form, HeaderList, NumberOfPlayers } from './styles';
 
+import { Loading } from '@components/Loading';
 import { Header } from '@components/Header';
 import { Highlight } from '@components/Highlight';
 import { ButtonIcon } from '@components/ButtonIcon';
@@ -27,6 +28,7 @@ type RouteParams = {
 };
 
 export function Players() {
+    const [isLoading, setIsLoading] = useState(true);
     const [newPlayerName, setNewPlayerName] = useState('');
     const [team, setTeam] = useState('Time A');
     const [players, setPlayers] = useState<PlayerStorageDTO[]>([]);
@@ -67,11 +69,34 @@ export function Players() {
 
     async function fetchPlayersByTeam() {
         try {
+            setIsLoading(true);
+
             const playersByTeam = await playersGetByGroupAndTeam(group, team);
+
             setPlayers(playersByTeam);
 
         } catch (error) {
             Alert.alert('Particiantes', 'Não foi possível carregar os participantes do time!');
+        } finally {
+            setIsLoading(false);
+        }
+    }
+
+    async function playerRemove(playerName: string) {
+        await playerRemoveByGroup(playerName, group);
+        fetchPlayersByTeam();
+    }
+
+    async function handlePlayerRemove(playerName: string) {
+        try {
+            Alert.alert('Remover',
+                `Tem certeza que deseja remover ${playerName} da turma?`,
+                [
+                    { text: 'Não', style: 'cancel' },
+                    { text: 'Sim', onPress: () => playerRemove(playerName) },
+                ]);
+        } catch (error) {
+            Alert.alert('Remover Pessoa', 'Não foi possível remover essa pessoa');
         }
     }
 
@@ -84,15 +109,6 @@ export function Players() {
             Alert.alert('Remover grupo', 'Não foi possível remover o grupo!');
         }
 
-    }
-
-    async function handlePlayerRemove(playerName: string) {
-        try {
-            await playerRemoveByGroup(playerName, group);
-            fetchPlayersByTeam();
-        } catch (error) {
-            Alert.alert('Remover Pessoa', 'Não foi possível remover essa pessoa');
-        }
     }
 
     async function handleGroupRemove() {
@@ -155,29 +171,32 @@ export function Players() {
                 </NumberOfPlayers>
             </HeaderList>
 
-            <FlatList
-                data={players}
-                keyExtractor={item => item.name}
-                renderItem={({ item }) => (
-                    <PlayerCard
-                        name={item.name}
-                        onRemove={() => handlePlayerRemove(item.name)}
-                    />
-                )}
-                ListEmptyComponent={() => (
-                    <ListEmpty
-                        message="Não há pessoas nesse time!"
-                    />
-                )}
-                showsVerticalScrollIndicator={false}
-                contentContainerStyle={[
-                    { paddingBottom: 100 },
-                    players.length === 0 && { flex: 1 }
-                ]}
-            />
+            {isLoading ? <Loading /> :
+
+                <FlatList
+                    data={players}
+                    keyExtractor={item => item.name}
+                    renderItem={({ item }) => (
+                        <PlayerCard
+                            name={item.name}
+                            onRemove={() => handlePlayerRemove(item.name)}
+                        />
+                    )}
+                    ListEmptyComponent={() => (
+                        <ListEmpty
+                            message="Não há pessoas nesse time!"
+                        />
+                    )}
+                    showsVerticalScrollIndicator={false}
+                    contentContainerStyle={[
+                        { paddingBottom: 100 },
+                        players.length === 0 && { flex: 1 }
+                    ]}
+                />
+            }
 
             <Button
-                title="Remover Turma"
+                title="Remover turma"
                 type="SECONDARY"
                 onPress={handleGroupRemove}
             />

@@ -18,7 +18,7 @@ export async function playerAddByGroup(
     );
 
     if (playerAlreadyExists.length > 0) {
-      throw new AppError('Essa pessoa já foi adicionada em um outro time!');
+      throw new AppError('Essa pessoa já foi adicionada em um outra turma!');
     }
 
     const storage = JSON.stringify([...storedPlayers, newPlayer]);

@@ -26,6 +26,16 @@ O Ignite Teams é uma aplicação desenvolvida com React Native e Expo para cada
 - [ ] Editar nome da turma
 - [ ] Editar nome do participante
 
+## Tecnologias utilizadas
+
+- [React Native](https://reactnative.dev)
+- [Expo](https://expo.dev)
+- [Typescript](https://www.typescriptlang.org)
+
+# :heavy_plus_sign: Dependências do projeto
+
+- [wait...](#)
+
 ## Como iniciar a aplicação :desktop_computer:
 
 **Clone o repositório do projeto e acesse o seu diretório**

@@ -31,10 +31,17 @@ O Ignite Teams é uma aplicação desenvolvida com React Native e Expo para cada
 - [React Native](https://reactnative.dev)
 - [Expo](https://expo.dev)
 - [Typescript](https://www.typescriptlang.org)
-
-# :heavy_plus_sign: Dependências do projeto
-
-- [wait...](#)
+- [Styled Components](https://styled-components.com/)
+- [Expo Google Fonts](https://www.npmjs.com/package/@expo-google-fonts/roboto)
+- [Async Storage](https://react-native-async-storage.github.io/async-storage/)
+- [Phosphor Icons](https://phosphoricons.com/)
+- [React Native SVG](https://docs.expo.dev/versions/latest/sdk/svg/)
+- [React Native Safe Area Context](https://docs.expo.dev/versions/latest/sdk-afe-area-context/)
+- [React Navigation](https://reactnavigation.org/)
+- [React Navigation - Native Stack](https://reactnative.dev/docs/navigation)
+- [Expo StatusBar](https://docs.expo.dev/versions/latest/sdk/status-bar/)
+- [Expo Font](https://docs.expo.dev/versions/latest/sdk/font/#installation)
+- [Babel Plugin Module Resolver](https://www.npmjs.com/package/babel-plugin-module-resolver)
 
 ## Como iniciar a aplicação :desktop_computer:
 

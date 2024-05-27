@@ -111,4 +111,4 @@ Depois que sua solicitação de pull for mesclada, você poderá excluir sua bra
 
 # Author :man_technologist:
 
-Feito com :heart: por **Vinícios** meu :point_right: [Linkedin](https://www.linkedin.com/in/vinicios-batista-da-silva/)
+Feito com :heart: por **Vinícios** meu :point_right: [Linkedin](http://linkedin.com/in/viniciossilva3)
